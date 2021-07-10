@@ -1,6 +1,6 @@
 {
   "name": "@codingheads/lazy-infinite-scroll",
-  "version": "0.9.9",
+  "version": "1.0.0",
   "description": "A library for infinite scroll and ajax loading, but with some extras.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
