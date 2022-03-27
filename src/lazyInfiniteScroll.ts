@@ -6,6 +6,8 @@
  * Team: Codingheads (codingheads.com)
  */
 
+type Morpher = (oldElement: Element, newElement: Element) => void;
+
 export interface LazyInfiniteScrollOptions {
   containerSelector?: string;
   itemSelector?: string;
@@ -17,6 +19,7 @@ export interface LazyInfiniteScrollOptions {
   currentPageNumber?: number | false;
   syncSelectors?: string[] | false;
   updateUrl?: boolean;
+  morpher?: Morpher;
 }
 
 interface jQuery {
@@ -36,6 +39,7 @@ export default class LazyInfiniteScroll {
   currentPageNumber: number = 1;
   syncSelectors: string[] = [];
   updateUrl: boolean = true;
+  morpher: Morpher;
   #element: HTMLElement = null;
   #currentLocation: string = window.location.href;
   #observer: IntersectionObserver = null;
@@ -53,6 +57,9 @@ export default class LazyInfiniteScroll {
       currentPageNumber = 1,
       syncSelectors = [],
       updateUrl = true,
+      morpher = (oldElement: Element, newElement: Element) => {
+        oldElement.innerHTML = newElement.innerHTML;
+      },
     }: LazyInfiniteScrollOptions = {},
     init: boolean = true
   ) {
@@ -152,9 +159,11 @@ export default class LazyInfiniteScroll {
 
     // replace the pagination
     if (this.#pagination) {
-      const paginationContent = newHtml.querySelector(this.paginationContainerSelector);
+      const paginationContent = newHtml.querySelector(
+        this.paginationContainerSelector
+      ) as HTMLElement;
       if (paginationContent) {
-        this.#pagination.innerHTML = paginationContent.innerHTML;
+        this.morpher(this.#pagination, paginationContent);
         this.#initLoadOnScroll();
       } else {
         this.#pagination.innerHTML = '';
@@ -167,7 +176,7 @@ export default class LazyInfiniteScroll {
         const newElement = newHtml.querySelector(selector),
           oldElement = this.#element.querySelector(selector);
         if (newElement && oldElement) {
-          oldElement.innerHTML = newElement.innerHTML;
+          this.morpher(oldElement, newElement);
         }
       });
     }
