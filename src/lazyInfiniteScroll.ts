@@ -77,6 +77,7 @@ export default class LazyInfiniteScroll {
       currentPageNumber,
       syncSelectors,
       updateUrl,
+      morpher,
     };
     this.#loadInlineOptions(settings);
 
