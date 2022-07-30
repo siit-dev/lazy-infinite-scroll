@@ -350,9 +350,18 @@ export default class LazyInfiniteScroll {
     // observe intersection
     if (this.loadOnScroll && this.#pagination) {
       if (!this.#observer) {
-        this.#observer = new IntersectionObserver(() => this.loadNextPage(), {
-          rootMargin: '200px',
-        });
+        this.#observer = new IntersectionObserver(
+          entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                this.loadNextPage();
+              }
+            });
+          },
+          {
+            rootMargin: '200px',
+          }
+        );
       }
       this.#observer.observe(this.#pagination);
     }
