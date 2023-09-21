@@ -1,5 +1,5 @@
 {
-  "name": "@codingheads/lazy-infinite-scroll",
+  "name": "@smartimpact-it/lazy-infinite-scroll",
   "version": "1.0.4",
   "description": "A library for infinite scroll and ajax loading, but with some extras.",
   "main": "dist/cjs/index.js",
@@ -16,6 +16,10 @@
     {
       "name": "Bogdan Barbu",
       "email": "bogdan.b@codingheads.com"
+    },
+    {
+      "name": "Bogdan Barbu",
+      "email": "bbarbu@smartimpact.fr"
     }
   ],
   "license": "GPL-3",
@@ -37,7 +41,7 @@
     "build:types": "node tools/cleanup types && tsc -p config/tsconfig.types.json",
     "clean": "node tools/cleanup",
     "package": "npm run build && npm pack",
-    "addscope": "node tools/packagejson name @codingheads/lazyload",
+    "addscope": "node tools/packagejson name @smartimpact-it/lazyload",
     "postversion": "git push --follow-tags"
   },
   "publishConfig": {
@@ -53,7 +57,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Codingheads-Developer/lazy-infinite-scroll.git"
+    "url": "git+https://github.com/siit-dev/lazy-infinite-scroll.git"
   },
   "dependencies": {},
   "devDependencies": {
@@ -81,7 +85,7 @@
     "webpack-notifier": "^1.13.0"
   },
   "bugs": {
-    "url": "https://github.com/Codingheads-Developer/lazy-infinite-scroll/issues"
+    "url": "https://github.com/siit-dev/lazy-infinite-scroll/issues"
   },
-  "homepage": "https://github.com/Codingheads-Developer/lazy-infinite-scroll"
+  "homepage": "https://github.com/siit-dev/lazy-infinite-scroll"
 }

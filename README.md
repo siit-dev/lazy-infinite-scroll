@@ -9,7 +9,7 @@ The plugin doesn't require jQuery, but it adds itself to jQuery if jQuery exists
 Use npm (or yarn) to install the package.
 
 ```npm2yarn
-npm install --save @codingheads/lazy-infinite-scroll
+npm install --save @smartimpact-it/lazy-infinite-scroll
 ```
 
 ## Initializing in JavaScript
@@ -17,7 +17,7 @@ npm install --save @codingheads/lazy-infinite-scroll
 To initialize the library, you need to create a new instance of the `LazyInfiniteScroll` class:
 
 ```javascript
-import LazyInfiniteScroll from '@codingheads/lazy-infinite-scroll';
+import LazyInfiniteScroll from '@smartimpact-it/lazy-infinite-scroll';
 
 window.addEventListener('DOMContentLoaded', () => {
   // initialize infinite scroll
@@ -38,7 +38,7 @@ Or using jQuery:
 
 ```javascript
 import $ from 'jquery';
-import '@codingheads/lazy-infinite-scroll';
+import '@smartimpact-it/lazy-infinite-scroll';
 
 $(() => {
   // initialize infinite scroll
